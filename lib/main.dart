@@ -1,4 +1,5 @@
 import 'package:evently/theme/app_theme.dart';
+import 'package:evently/ui/onboarding/onboarding_screen.dart';
 import 'package:evently/ui/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.dark,
+      //themeMode: ThemeMode.dark,
       routes: {
         SplashScreen.routeName : (context) => SplashScreen(),
+        OnboardingScreen.routeName : (context) => OnboardingScreen(),
       },
       initialRoute: SplashScreen.routeName,
     );
