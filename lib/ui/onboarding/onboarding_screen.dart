@@ -1,6 +1,10 @@
+import 'package:evently/ui/state_management/app_provider.dart';
 import 'package:evently/ui/widgets/language_toggle.dart';
 import 'package:evently/ui/widgets/theme_toggle.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../l10n/generated/app_localizations.dart';
 
 class OnboardingScreen extends StatelessWidget {
   static const String routeName = "onboarding";
@@ -8,6 +12,7 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppProvider onboardingProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Image.asset("assets/images/Group 4.png"),
@@ -20,26 +25,26 @@ class OnboardingScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             spacing: 16,
             children: [
-              Image.asset("assets/images/being-creative.png"),
-              Text("Personalize Your Experience", style: Theme.of(context).textTheme.titleLarge,),
-              Text("Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.", style: Theme.of(context).textTheme.bodyLarge,),
+              Image.asset((onboardingProvider.currentTheme == ThemeMode.light)?"assets/images/being-creative.png":"assets/images/designer-desk.png"),
+              Text(AppLocalizations.of(context)!.personalizeTitle, style: Theme.of(context).textTheme.titleLarge,),
+              Text(AppLocalizations.of(context)!.personalizeDescription, style: Theme.of(context).textTheme.bodyLarge,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Language", style: Theme.of(context).textTheme.titleLarge,),
+                  Text(AppLocalizations.of(context)!.language, style: Theme.of(context).textTheme.titleLarge,),
                   LanguageToggle(),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Theme", style: Theme.of(context).textTheme.titleLarge,),
+                  Text(AppLocalizations.of(context)!.theme, style: Theme.of(context).textTheme.titleLarge,),
                   ThemeToggle(),
                 ],
               ),
               Row(
                 children: [
-                  Expanded(child: FilledButton(onPressed: (){}, child: Text("Let’s Start", style: TextStyle(fontSize: 22),))),
+                  Expanded(child: FilledButton(onPressed: (){}, child: Text(AppLocalizations.of(context)!.letsStart, style: TextStyle(fontSize: 22),))),
                 ],
               ),
             ],
