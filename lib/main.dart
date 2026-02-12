@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'l10n/generated/app_localizations.dart';
+import 'ui/onboarding/onboarding_pages_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           routes: {
             SplashScreen.routeName: (context) => SplashScreen(),
             OnboardingScreen.routeName: (context) => OnboardingScreen(),
+            OnboardingPagesScreen.routeName: (context) => OnboardingPagesScreen(),
           },
           initialRoute: SplashScreen.routeName,
         );

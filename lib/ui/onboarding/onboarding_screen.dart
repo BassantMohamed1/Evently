@@ -1,3 +1,4 @@
+import 'package:evently/ui/onboarding/onboarding_pages_screen.dart';
 import 'package:evently/ui/state_management/app_provider.dart';
 import 'package:evently/ui/widgets/language_toggle.dart';
 import 'package:evently/ui/widgets/theme_toggle.dart';
@@ -44,7 +45,9 @@ class OnboardingScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Expanded(child: FilledButton(onPressed: (){}, child: Text(AppLocalizations.of(context)!.letsStart, style: TextStyle(fontSize: 22),))),
+                  Expanded(child: FilledButton(onPressed: (){
+                    Navigator.pushReplacementNamed(context, OnboardingPagesScreen.routeName);
+                  }, child: Text(AppLocalizations.of(context)!.letsStart, style: TextStyle(fontSize: 22),))),
                 ],
               ),
             ],

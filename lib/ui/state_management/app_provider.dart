@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppProvider extends ChangeNotifier {
   ThemeMode currentTheme = ThemeMode.light;
   String currentLocale = "en";
+  int onboardingIndex = 0;
 
   void changeTheme(){
     if(currentTheme == ThemeMode.light){
@@ -19,6 +20,11 @@ class AppProvider extends ChangeNotifier {
     }else{
       currentLocale = "en";
     }
+    notifyListeners();
+  }
+
+  void changeOnboardingIndex(int newIndex){
+    onboardingIndex = newIndex;
     notifyListeners();
   }
 }
