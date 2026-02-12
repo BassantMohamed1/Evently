@@ -1,4 +1,4 @@
-import 'package:evently/ui/onboarding/onboarding_dm.dart';
+import 'package:evently/ui/widgets/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -16,13 +16,13 @@ class OnboardingPagesScreen extends StatefulWidget {
 
 class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
   final PageController _pageController = PageController();
-  late final List<OnboardingDM> onboardingPages;
+  //late final List<OnboardingDM> onboardingPages;
 
   @override
   void initState() {
     super.initState();
-    OnboardingDM.generateOnboardingPages();
-    onboardingPages = OnboardingDM.onboardingPages;
+    //OnboardingDM.generateOnboardingPages();
+    //onboardingPages = OnboardingDM.onboardingPages;
   }
 
   @override
@@ -36,31 +36,13 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
             Expanded(
               child: PageView.builder(
                 controller: _pageController,
-                itemCount: onboardingPages.length,
+                itemCount: 3,
                 physics: NeverScrollableScrollPhysics(),
                 onPageChanged: (index) {
                   onboardingPagesProvider.changeOnboardingIndex(index);
                 },
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 32,
-                      children: [
-                        Image.asset(onboardingPages[index].imagePath),
-                        Text(
-                          onboardingPages[index].title,
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        Text(
-                          onboardingPages[index].description,
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                      ],
-                    ),
-                  );
+                  return OnboardingPage();
                 },
               ),
             ),
@@ -86,17 +68,16 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
                         )
                       : SizedBox(width: 40),
                   SmoothPageIndicator(
-                      controller: _pageController,
-                      count:  onboardingPages.length,
-                      effect: ExpandingDotsEffect(
-                        dotColor: Theme.of(context).colorScheme.secondary,
-                        dotWidth: 8,
-                        dotHeight: 8,
-                        activeDotColor: Theme.of(context).colorScheme.primary,
-                      ),
+                    controller: _pageController,
+                    count: 3,
+                    effect: ExpandingDotsEffect(
+                      dotColor: Theme.of(context).colorScheme.secondary,
+                      dotWidth: 8,
+                      dotHeight: 8,
+                      activeDotColor: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
-                  (onboardingPagesProvider.onboardingIndex <
-                          onboardingPages.length - 1)
+                  (onboardingPagesProvider.onboardingIndex < 2)
                       ? OutlinedButton(
                           onPressed: () {
                             _pageController.nextPage(
@@ -111,7 +92,7 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
                           ),
                           child: Icon(Icons.arrow_forward, size: 28),
                         )
-                      : SizedBox(width: 40,),
+                      : SizedBox(width: 40),
                 ],
               ),
             ),
