@@ -1,3 +1,4 @@
+import 'package:evently/ui/login/login_screen.dart';
 import 'package:evently/ui/widgets/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -76,23 +77,28 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
                       activeDotColor: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  (onboardingPagesProvider.onboardingIndex <
-                          onboardingPages.length - 1)
-                      ? OutlinedButton(
-                          onPressed: () {
-                            _pageController.nextPage(
-                              duration: Duration(milliseconds: 500),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          style: OutlinedButton.styleFrom(
-                            padding: EdgeInsets.all(8),
-                            minimumSize: Size(40, 40),
-                            shape: CircleBorder(),
-                          ),
-                          child: Icon(Icons.arrow_forward, size: 28),
-                        )
-                      : SizedBox(width: 40),
+                  OutlinedButton(
+                    onPressed: () {
+                      if (onboardingPagesProvider.onboardingIndex ==
+                          onboardingPages.length - 1) {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          LoginScreen.routeName,
+                        );
+                      } else {
+                        _pageController.nextPage(
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                      }
+                    },
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.all(8),
+                      minimumSize: Size(40, 40),
+                      shape: CircleBorder(),
+                    ),
+                    child: Icon(Icons.arrow_forward, size: 28),
+                  ),
                 ],
               ),
             ),
