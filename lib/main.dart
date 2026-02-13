@@ -1,5 +1,6 @@
 import 'package:evently/theme/app_theme.dart';
-import 'package:evently/ui/login/login_screen.dart';
+import 'package:evently/ui/authorization/login/login_screen.dart';
+import 'package:evently/ui/authorization/register/register_screen.dart';
 import 'package:evently/ui/onboarding/onboarding_screen.dart';
 import 'package:evently/ui/splash/splash_screen.dart';
 import 'package:evently/ui/state_management/app_provider.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
             OnboardingScreen.routeName: (context) => OnboardingScreen(),
             OnboardingPagesScreen.routeName: (context) => OnboardingPagesScreen(),
             LoginScreen.routeName: (context) => LoginScreen(),
+            RegisterScreen.routeName: (context) => RegisterScreen(),
           },
           initialRoute: SplashScreen.routeName,
         );

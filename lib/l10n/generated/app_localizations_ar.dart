@@ -47,4 +47,37 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get onboarding_desc_3 =>
       'اجعل كل فعالية لا تُنسى من خلال مشاركة التجربة مع الآخرين. تتيح لك منصتنا دعوة الأصدقاء، وإبقاء الجميع على اطلاع، والاحتفال باللحظات معاً. التقط وشارك الحماس مع شبكتك، حتى تتمكن من استعادة اللحظات المميزة والاعتزاز بذكرياتك.';
+
+  @override
+  String get email_placeholder => 'البريد الإلكتروني';
+
+  @override
+  String get password_placeholder => 'كلمة المرور';
+
+  @override
+  String get re_password_placeholder => 'تأكيد كلمة المرور';
+
+  @override
+  String get forget_password => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get login_button => 'تسجيل الدخول';
+
+  @override
+  String get dont_have_account => 'ليس لديك حساب ؟';
+
+  @override
+  String get create_account => 'إنشاء حساب';
+
+  @override
+  String get or_divider => 'أو';
+
+  @override
+  String get login_with_google => 'تسجيل الدخول بواسطة جوجل';
+
+  @override
+  String get already_have_account => 'لديك حساب بالفعل ؟';
+
+  @override
+  String get name => 'الاسم';
 }

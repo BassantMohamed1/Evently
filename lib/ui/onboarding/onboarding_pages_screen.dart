@@ -1,9 +1,9 @@
-import 'package:evently/ui/login/login_screen.dart';
 import 'package:evently/ui/widgets/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../authorization/login/login_screen.dart';
 import '../state_management/app_provider.dart';
 
 class OnboardingPagesScreen extends StatefulWidget {

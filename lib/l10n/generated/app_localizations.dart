@@ -169,6 +169,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.'**
   String get onboarding_desc_3;
+
+  /// No description provided for @email_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email_placeholder;
+
+  /// No description provided for @password_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password_placeholder;
+
+  /// No description provided for @re_password_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Re-enter Password'**
+  String get re_password_placeholder;
+
+  /// No description provided for @forget_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forget Password?'**
+  String get forget_password;
+
+  /// No description provided for @login_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login_button;
+
+  /// No description provided for @dont_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t Have Account ?'**
+  String get dont_have_account;
+
+  /// No description provided for @create_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get create_account;
+
+  /// No description provided for @or_divider.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or_divider;
+
+  /// No description provided for @login_with_google.
+  ///
+  /// In en, this message translates to:
+  /// **'Login With Google'**
+  String get login_with_google;
+
+  /// No description provided for @already_have_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Already Have Account ?'**
+  String get already_have_account;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
 }
 
 class _AppLocalizationsDelegate

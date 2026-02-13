@@ -1,3 +1,5 @@
+import 'package:evently/l10n/generated/app_localizations.dart';
+import 'package:evently/ui/authorization/register/register_screen.dart';
 import 'package:evently/ui/widgets/language_toggle.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -19,7 +22,6 @@ class LoginScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                //mainAxisAlignment: MainAxisAlignment.spaceAround,
                 spacing: 16,
                 children: [
                   Image.asset(
@@ -27,16 +29,16 @@ class LoginScreen extends StatelessWidget {
                     width: size.width * 0.35,
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      hintText: 'Email',
-                      prefixIcon: Icon(Icons.email_rounded),
+                    decoration: InputDecoration(
+                      border: const UnderlineInputBorder(),
+                      hintText: local.email_placeholder,
+                      prefixIcon: const Icon(Icons.email_rounded),
                     ),
                   ),
                   TextFormField(
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: UnderlineInputBorder(),
-                      hintText: 'Password',
+                      hintText: local.password_placeholder,
                       prefixIcon: Icon(Icons.lock_rounded),
                       suffixIcon: Icon(Icons.remove_red_eye)
                     ),
@@ -45,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {},
-                      child: Text("Forget Password?"),
+                      child: Text(local.forget_password),
                     ),
                   ),
                   Row(
@@ -53,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                       Expanded(
                         child: FilledButton(
                           onPressed: () {},
-                          child: Text("Login", style: TextStyle(fontSize: 22)),
+                          child: Text(local.login_button, style: TextStyle(fontSize: 22)),
                         ),
                       ),
                     ],
@@ -62,12 +64,14 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't Have Account ?",
+                        local.dont_have_account,
                         style: TextStyle(fontSize: 18),
                       ),
                       TextButton(
-                        onPressed: () {},
-                        child: Text("Create Account"),
+                        onPressed: () {
+                          Navigator.pushNamed(context, RegisterScreen.routeName);
+                        },
+                        child: Text(local.create_account),
                       ),
                     ],
                   ),
@@ -79,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         Expanded(child: Divider()),
                         Text(
-                          "Or",
+                          local.or_divider,
                           style: TextStyle(
                             fontSize: 18,
                             color: Theme.of(context).colorScheme.primary,
@@ -97,7 +101,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         Image.asset("assets/images/super g.png"),
                         Text(
-                          "Login With Google",
+                          local.login_with_google,
                           style: TextStyle(fontSize: 20),
                         ),
                       ],

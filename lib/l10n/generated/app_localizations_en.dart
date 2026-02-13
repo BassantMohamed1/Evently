@@ -47,4 +47,37 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get onboarding_desc_3 =>
       'Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.';
+
+  @override
+  String get email_placeholder => 'Email';
+
+  @override
+  String get password_placeholder => 'Password';
+
+  @override
+  String get re_password_placeholder => 'Re-enter Password';
+
+  @override
+  String get forget_password => 'Forget Password?';
+
+  @override
+  String get login_button => 'Login';
+
+  @override
+  String get dont_have_account => 'Don\'t Have Account ?';
+
+  @override
+  String get create_account => 'Create Account';
+
+  @override
+  String get or_divider => 'Or';
+
+  @override
+  String get login_with_google => 'Login With Google';
+
+  @override
+  String get already_have_account => 'Already Have Account ?';
+
+  @override
+  String get name => 'Name';
 }
