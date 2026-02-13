@@ -16,13 +16,12 @@ class OnboardingPagesScreen extends StatefulWidget {
 
 class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
   final PageController _pageController = PageController();
-  //late final List<OnboardingDM> onboardingPages;
+  late final List<OnboardingPage> onboardingPages;
 
   @override
   void initState() {
     super.initState();
-    //OnboardingDM.generateOnboardingPages();
-    //onboardingPages = OnboardingDM.onboardingPages;
+    onboardingPages = OnboardingPage.getOnboardingPages();
   }
 
   @override
@@ -36,13 +35,13 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
             Expanded(
               child: PageView.builder(
                 controller: _pageController,
-                itemCount: 3,
+                itemCount: onboardingPages.length,
                 physics: NeverScrollableScrollPhysics(),
                 onPageChanged: (index) {
                   onboardingPagesProvider.changeOnboardingIndex(index);
                 },
                 itemBuilder: (context, index) {
-                  return OnboardingPage();
+                  return onboardingPages[index];
                 },
               ),
             ),
@@ -55,7 +54,7 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
                       ? OutlinedButton(
                           onPressed: () {
                             _pageController.previousPage(
-                              duration: Duration(milliseconds: 300),
+                              duration: Duration(milliseconds: 500),
                               curve: Curves.easeInOut,
                             );
                           },
@@ -69,7 +68,7 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
                       : SizedBox(width: 40),
                   SmoothPageIndicator(
                     controller: _pageController,
-                    count: 3,
+                    count: onboardingPages.length,
                     effect: ExpandingDotsEffect(
                       dotColor: Theme.of(context).colorScheme.secondary,
                       dotWidth: 8,
@@ -77,11 +76,12 @@ class _OnboardingPagesScreenState extends State<OnboardingPagesScreen> {
                       activeDotColor: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  (onboardingPagesProvider.onboardingIndex < 2)
+                  (onboardingPagesProvider.onboardingIndex <
+                          onboardingPages.length - 1)
                       ? OutlinedButton(
                           onPressed: () {
                             _pageController.nextPage(
-                              duration: Duration(milliseconds: 300),
+                              duration: Duration(milliseconds: 500),
                               curve: Curves.easeInOut,
                             );
                           },

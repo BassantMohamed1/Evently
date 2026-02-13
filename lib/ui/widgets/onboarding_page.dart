@@ -4,7 +4,8 @@ import 'package:provider/provider.dart';
 import '../state_management/app_provider.dart';
 
 class OnboardingPage extends StatelessWidget {
-  const OnboardingPage({super.key});
+  final int index;
+  const OnboardingPage({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +40,25 @@ class OnboardingPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         spacing: 32,
         children: [
-          Image.asset(imagePaths[onboardingPagesProvider.onboardingIndex]),
+          Image.asset(imagePaths[index]),
           Text(
-            titles[onboardingPagesProvider.onboardingIndex],
+            titles[index],
             style: Theme.of(context).textTheme.titleLarge,
           ),
           Text(
-            descriptions[onboardingPagesProvider.onboardingIndex],
+            descriptions[index],
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ],
       ),
     );
+  }
+
+  static List<OnboardingPage> getOnboardingPages(){
+    List<OnboardingPage> onboardingPages = [];
+    for(int i = 0; i < 3; i++) {
+      onboardingPages.add(OnboardingPage(index: i,));
+    }
+    return onboardingPages;
   }
 }
